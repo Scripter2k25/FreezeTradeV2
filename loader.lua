@@ -29,7 +29,8 @@ title.Font = Enum.Font.GothamBold
 title.TextScaled = true
 title.Parent = frame
 
-local inputBox = Instance.new("Input Target Username")
+-- Username Input Box
+local inputBox = Instance.new("TextBox")
 inputBox.PlaceholderText = "Enter username"
 inputBox.Size = UDim2.new(0.9, 0, 0, 40)
 inputBox.Position = UDim2.new(0.05, 0, 0, 60)
@@ -50,10 +51,9 @@ targetPfp.BackgroundTransparency = 1
 targetPfp.Image = ""
 targetPfp.Parent = frame
 
--- @username Label
 local targetUsername = Instance.new("TextLabel")
 targetUsername.Text = ""
-targetUsername.Size = UDim2.new(0, 200, 0, 30)
+targetUsername.Size = UDim2.new(1, 0, 0, 30)
 targetUsername.Position = UDim2.new(0.5, 0, 0, 230)
 targetUsername.AnchorPoint = Vector2.new(0.5, 0)
 targetUsername.BackgroundTransparency = 1
@@ -84,6 +84,16 @@ local function createToggleButton(name, position)
             btn.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
             btn.TextColor3 = Color3.fromRGB(255, 255, 255)
             btn.Text = "✅ " .. name
+
+            -- Roblox Notification
+            local notifText = name == "Freeze Trade" and "Target Trade Freeze" or "Target Auto Accept"
+            pcall(function()
+                game:GetService("StarterGui"):SetCore("SendNotification", {
+                    Title = "Trade Tool";
+                    Text = notifText;
+                    Duration = 3;
+                })
+            end)
         else
             btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             btn.TextColor3 = Color3.fromRGB(0, 0, 0)
