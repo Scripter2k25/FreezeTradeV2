@@ -2,11 +2,13 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local player = Players.LocalPlayer
 
+-- GUI Setup
 local gui = Instance.new("ScreenGui")
 gui.Name = "TradeUI"
 gui.ResetOnSpawn = false
 gui.Parent = player:WaitForChild("PlayerGui")
 
+-- Main Frame
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 420, 0, 360)
 frame.Position = UDim2.new(0.5, -210, 0.5, -180)
@@ -20,6 +22,7 @@ frame.Parent = gui
 
 Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
 
+-- Title Label
 local title = Instance.new("TextLabel")
 title.Text = "freeze trade @redo"
 title.Size = UDim2.new(1, 0, 0, 50)
@@ -43,6 +46,7 @@ inputBox.BorderSizePixel = 0
 inputBox.Parent = frame
 Instance.new("UICorner", inputBox).CornerRadius = UDim.new(0, 8)
 
+-- Profile Picture
 local targetPfp = Instance.new("ImageLabel")
 targetPfp.Size = UDim2.new(0, 120, 0, 120)
 targetPfp.Position = UDim2.new(0.5, 0, 0, 100)
@@ -51,6 +55,7 @@ targetPfp.BackgroundTransparency = 1
 targetPfp.Image = ""
 targetPfp.Parent = frame
 
+-- @username Label
 local targetUsername = Instance.new("TextLabel")
 targetUsername.Text = ""
 targetUsername.Size = UDim2.new(1, 0, 0, 30)
@@ -64,6 +69,7 @@ targetUsername.TextXAlignment = Enum.TextXAlignment.Center
 targetUsername.TextYAlignment = Enum.TextYAlignment.Center
 targetUsername.Parent = frame
 
+-- Toggle Button Template
 local function createToggleButton(name, position)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(0.4, 0, 0, 40)
@@ -104,9 +110,11 @@ local function createToggleButton(name, position)
     return btn
 end
 
+-- Buttons
 local freezeBtn = createToggleButton("Freeze Trade", UDim2.new(0.05, 0, 1, -50))
 local acceptBtn = createToggleButton("Auto Accept", UDim2.new(0.55, 0, 1, -50))
 
+-- Username Input Functionality
 inputBox.FocusLost:Connect(function(enterPressed)
     if enterPressed then
         local username = inputBox.Text
