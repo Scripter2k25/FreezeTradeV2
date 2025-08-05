@@ -29,7 +29,7 @@ title.Font = Enum.Font.GothamBold
 title.TextScaled = true
 title.Parent = frame
 
-local inputBox = Instance.new("TextBox")
+local inputBox = Instance.new("Input Target Username")
 inputBox.PlaceholderText = "Enter username"
 inputBox.Size = UDim2.new(0.9, 0, 0, 40)
 inputBox.Position = UDim2.new(0.05, 0, 0, 60)
