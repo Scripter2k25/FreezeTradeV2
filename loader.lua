@@ -33,7 +33,7 @@ title.TextScaled = true
 title.Parent = frame
 
 -- Username Input Box
-local inputBox = Instance.new("TextBox")
+local inputBox = Instance.new("Enter Target Username")
 inputBox.PlaceholderText = "Enter username"
 inputBox.Size = UDim2.new(0.9, 0, 0, 40)
 inputBox.Position = UDim2.new(0.05, 0, 0, 60)
