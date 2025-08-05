@@ -29,8 +29,8 @@ title.Font = Enum.Font.GothamBold
 title.TextScaled = true
 title.Parent = frame
 
-local inputBox = Instance.new("Input Target Username")
-inputBox.PlaceholderText = "Enter username"
+local inputBox = Instance.new("TextBox")
+inputBox.PlaceholderText = "Input Target Username"
 inputBox.Size = UDim2.new(0.9, 0, 0, 40)
 inputBox.Position = UDim2.new(0.05, 0, 0, 60)
 inputBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -43,8 +43,8 @@ inputBox.Parent = frame
 Instance.new("UICorner", inputBox).CornerRadius = UDim.new(0, 8)
 
 local targetPfp = Instance.new("ImageLabel")
-targetPfp.Size = UDim2.new(0, 120, 0, 120)
-targetPfp.Position = UDim2.new(0.5, 0, 0, 100)
+targetPfp.Size = UDim2.new(0, 140, 0, 140)
+targetPfp.Position = UDim2.new(0.5, 0, 0, 110)
 targetPfp.AnchorPoint = Vector2.new(0.5, 0)
 targetPfp.BackgroundTransparency = 1
 targetPfp.Image = ""
@@ -53,7 +53,7 @@ targetPfp.Parent = frame
 local targetUsername = Instance.new("TextLabel")
 targetUsername.Text = ""
 targetUsername.Size = UDim2.new(1, 0, 0, 30)
-targetUsername.Position = UDim2.new(0.5, 0, 0, 230)
+targetUsername.Position = UDim2.new(0.5, 0, 0, 255)
 targetUsername.AnchorPoint = Vector2.new(0.5, 0)
 targetUsername.BackgroundTransparency = 1
 targetUsername.TextColor3 = Color3.fromRGB(200, 200, 200)
@@ -83,13 +83,12 @@ local function createToggleButton(name, position)
             btn.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
             btn.TextColor3 = Color3.fromRGB(255, 255, 255)
             btn.Text = "✅ " .. name
-
             local notifText = name == "Freeze Trade" and "Target Trade Freeze" or "Target Auto Accept"
             pcall(function()
                 game:GetService("StarterGui"):SetCore("SendNotification", {
-                    Title = "Trade Tool";
-                    Text = notifText;
-                    Duration = 3;
+                    Title = "Trade Tool",
+                    Text = notifText,
+                    Duration = 3
                 })
             end)
         else
